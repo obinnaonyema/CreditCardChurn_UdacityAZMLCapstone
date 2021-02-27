@@ -1,0 +1,378 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Automated ML\n",
+        "\n",
+        "TODO: Import Dependencies. In the cell below, import all the dependencies that you will need to complete the project."
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from azureml.core import Workspace, Experiment\r\n",
+        "from azureml.core import Model \r\n",
+        "from azureml.train.automl import AutoMLConfig\r\n",
+        "from azureml.widgets import RunDetails\r\n",
+        "from azureml.core.compute import ComputeTarget, AmlCompute\r\n",
+        "from pprint import pprint \r\n",
+        "import joblib\r\n",
+        "import os"
+      ],
+      "outputs": [],
+      "execution_count": 1,
+      "metadata": {
+        "gather": {
+          "logged": 1614435371930
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Dataset\n",
+        "\n",
+        "### Overview\n",
+        "TODO: In this markdown cell, give an overview of the dataset you are using. Also mention the task you will be performing.\n",
+        "\n",
+        "\n",
+        "TODO: Get data. In the cell below, write code to access the data you will be using in this project. Remember that the dataset needs to be external."
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ws = Workspace.from_config()\n",
+        "\n",
+        "# choose a name for experiment\n",
+        "experiment_name = 'credit_card_churn'\n",
+        "\n",
+        "experiment=Experiment(ws, experiment_name)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Performing interactive authentication. Please follow the instructions on the terminal.\n",
+            "To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code ELT36RUW7 to authenticate.\n",
+            "You have logged in. Now let us find all the subscriptions to which you have access...\n",
+            "Interactive authentication successfully completed.\n"
+          ]
+        }
+      ],
+      "execution_count": 2,
+      "metadata": {
+        "gather": {
+          "logged": 1614435416282
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## AutoML Configuration\n",
+        "\n",
+        "TODO: Explain why you chose the automl settings and cofiguration you used below."
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# TODO: Put your automl settings here\n",
+        "automl_settings = {}\n",
+        "\n",
+        "# TODO: Put your automl config here\n",
+        "automl_config = AutoMLConfig()"
+      ],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598429217746
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# TODO: Submit your experiment\n",
+        "remote_run = experiment.submit(automl_config)"
+      ],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598431107951
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Run Details\n",
+        "\n",
+        "OPTIONAL: Write about the different models trained and their performance. Why do you think some models did better than others?\n",
+        "\n",
+        "TODO: In the cell below, use the `RunDetails` widget to show the different experiments."
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598431121770
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Best Model\n",
+        "\n",
+        "TODO: In the cell below, get the best model from the automl experiments and display all the properties of the model.\n",
+        "\n"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598431425670
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#TODO: Save the best model"
+      ],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598431426111
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Model Deployment\n",
+        "\n",
+        "Remember you have to deploy only one of the two models you trained.. Perform the steps in the rest of this notebook only if you wish to deploy this model.\n",
+        "\n",
+        "TODO: In the cell below, register the model, create an inference config and deploy the model as a web service."
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598431435189
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "TODO: In the cell below, send a request to the web service you deployed to test it."
+      ],
+      "metadata": {
+        "collapsed": true,
+        "gather": {
+          "logged": 1598431657736
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "gather": {
+          "logged": 1598432707604
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "TODO: In the cell below, print the logs of the web service and delete the service"
+      ],
+      "metadata": {
+        "collapsed": true,
+        "gather": {
+          "logged": 1598432765711
+        },
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "jupyter": {
+          "outputs_hidden": false,
+          "source_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "kernel_info": {
+      "name": "python3"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.6.9",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    },
+    "microsoft": {
+      "host": {
+        "AzureML": {
+          "notebookHasBeenCompleted": true
+        }
+      }
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
