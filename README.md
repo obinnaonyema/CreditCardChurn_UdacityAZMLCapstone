@@ -16,6 +16,10 @@ To run this experiment, try the following:
   <li>The notebooks contain the configuration to set up compute clusters for training the data.</li>
 </ol>
 
+This is the flow of the project as expected by the instructure:
+
+![Project Flow](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/project_flow.PNG)
+
 ## Dataset
 
 ### Overview
@@ -40,11 +44,18 @@ I ran the experiment a few times using timeout settings of 20mins and 40mins but
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
-Although the AutoML experiment timeout setting ended the experiment, accuracy score was 0.95 for the best model. I ran the experiment more than one noticing that each time the accuracy score was different. Perhaps the difference in compute resources may have influenced the outcome.
+Although the AutoML experiment timeout setting ended the experiment, accuracy score was 0.95 for the best model. I ran the experiment more than one noticing that each time the accuracy score was different. Perhaps the difference in compute resources may have influenced the outcome. 
+
+The image below shows run details:
+
+![Run details AutoML](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/run_details_automl.PNG)
+
+This shows the best model:
+
+![Best model with run ID](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/best_model_with_run_id.PNG)
 
 In the future, I would like to see if letting the experiment run for multiple hours will yield much better results. Also, testing to see how increasing the number of cross-validations or using a larger data set may reduce bias. 
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
@@ -63,7 +74,14 @@ The HyperDrive experiment yielded an accuracy score of 0.8986 with regularizatio
 
 In the future, I would like to test improving the experiment by using a different sampling technique.
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+The image below shows run details with the run in progress:
+
+![Run details hyperdrive](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/run_details_hyperdrive.PNG)
+
+This shows best run:
+
+![Best run hyperdrive](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/best_run_hyperdrive_with_run_id.PNG)
+
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
