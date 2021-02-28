@@ -81,7 +81,6 @@ This shows best run:
 
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 I deployed the AutoML model and created a sample JSON payload from the original data set to call the endpoint for scoring. 
 
@@ -94,10 +93,10 @@ Here are the endpoint details showing it in healthy state:
 ![Endpoint healthy state](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/endpoint_details.PNG)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+You may view my screen cast [here](https://youtu.be/4F9Q9GvIhQU). I have run through the tasks briefly demonstrating with the files on my github repo.
+
+
+## Future Work
+
+I would like to work with a larger data set, and experiment with other sampling methods as well enable app insights if the model were to be used in a production environment.
