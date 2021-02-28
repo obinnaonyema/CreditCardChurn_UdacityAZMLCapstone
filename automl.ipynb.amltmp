@@ -182,10 +182,10 @@
         ")"
       ],
       "outputs": [],
-      "execution_count": 5,
+      "execution_count": 30,
       "metadata": {
         "gather": {
-          "logged": 1614457201834
+          "logged": 1614471302667
         },
         "jupyter": {
           "outputs_hidden": false,
@@ -213,10 +213,10 @@
           ]
         }
       ],
-      "execution_count": 6,
+      "execution_count": 31,
       "metadata": {
         "gather": {
-          "logged": 1614457211391
+          "logged": 1614471310084
         },
         "jupyter": {
           "outputs_hidden": false,
@@ -1653,11 +1653,11 @@
       "cell_type": "code",
       "source": [
         "#delete resources\r\n",
-        "#webservice.delete()\r\n",
-        "#cluster.delete()\r\n"
+        "webservice.delete()\r\n",
+        "cluster.delete()\r\n"
       ],
       "outputs": [],
-      "execution_count": 29,
+      "execution_count": 32,
       "metadata": {
         "collapsed": true,
         "jupyter": {
@@ -1670,7 +1670,7 @@
           }
         },
         "gather": {
-          "logged": 1614466595462
+          "logged": 1614472846671
         }
       }
     },
