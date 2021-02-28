@@ -83,11 +83,11 @@ This shows best run:
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
-I deployed the AutoML model and created a sample payload from the original data set to call the endpoint for scoring. 
+I deployed the AutoML model and created a sample JSON payload from the original data set to call the endpoint for scoring. 
 
 ![Deployed model](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/deployed_model.PNG)
 
-Then I compared the response to the values in Attrition_Flag from the original dataset. The code detailing this is in the AutoML notebook.
+I chose 5 rows of data to make up the parameters of the JSON request payload. Then I compared the response to the values in Attrition_Flag from the original dataset. The code detailing this is in the AutoML notebook.
 
 Here are the endpoint details showing it in healthy state:
 
