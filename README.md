@@ -1,5 +1,3 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
-
 # Credit Card Churn
 
 This is my chosen project for the Capstone Project in the Azure Machine Learning Engineer Nanodegree by Udacity. In this project, I attempt to build a model that will help a bank manager predict customers that are likely to churn. The manager's intention is to proactively engage these customers with a view to preventing churn. 
@@ -23,27 +21,27 @@ This is the flow of the project as expected by the instructure:
 ## Dataset
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
+
 The data set was obtained from Kaggle [here](https://www.kaggle.com/sakshigoyal7/credit-card-customers). It contains details of credit card customers of a bank. There are 22 columns and 10000 rows. The last 2 columns were advised to be discarded by the data set provider which I have done in this project.
 
 The data contains details such as education status, number of dependents, inactivity period, transaction counts, credit limits and so on. Our label is Attrition_Flag which says whether a customer is an existing customer or attrited customer.
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+
 The aim of the project is to predict the likelihood of churn, which is denoted by the records in the Attrition_Flag column of the raw data set. It is interesting to note that this dataset had some imbalance in the sense that only 1627 out of 10127 customers have churned.
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
+
 I use TabularDatasetFactory class to download the data from my github repo. 
 
 cc_cust = TabularDatasetFactory.from_delimited_files(path=cc_data, separator=',')
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+
 I ran the experiment a few times using timeout settings of 20mins and 40mins but this was too short for any child runs to start. I set experiment_timeout_minutes to 60 so as to allow significant time for training of a few child models. Primary metric used is accuracy and I tried to set a metric exit score as after a few attempts at running the experiment I noticed the score doesn't improve much after the first 5 child runs.
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+
 Although the AutoML experiment timeout setting ended the experiment, accuracy score was 0.95 for the best model. I ran the experiment more than one noticing that each time the accuracy score was different. Perhaps the difference in compute resources may have influenced the outcome. 
 
 The image below shows run details:
@@ -58,7 +56,6 @@ In the future, I would like to see if letting the experiment run for multiple ho
 
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
 Logistic Regression algorithm from the ScikitLearn library was used for the HyperDrive Experiment. These parameters were set up:
 
@@ -69,7 +66,7 @@ Logistic Regression algorithm from the ScikitLearn library was used for the Hype
 </ul>
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+
 The HyperDrive experiment yielded an accuracy score of 0.8986 with regularization parameter of 4 and max iteration of 200.
 
 In the future, I would like to test improving the experiment by using a different sampling technique.
@@ -85,6 +82,16 @@ This shows best run:
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+
+I deployed the AutoML model and created a sample payload from the original data set to call the endpoint for scoring. 
+
+![Deployed model](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/deployed_model.PNG)
+
+Then I compared the response to the values in Attrition_Flag from the original dataset. The code detailing this is in the AutoML notebook.
+
+Here are the endpoint details showing it in healthy state:
+
+![Endpoint healthy state](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/endpoint_details.PNG)
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
