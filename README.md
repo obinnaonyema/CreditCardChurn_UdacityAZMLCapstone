@@ -34,15 +34,15 @@ The aim of the project is to predict the likelihood of churn, which is denoted b
 
 I use TabularDatasetFactory class to download the data from my github repo. 
 
-cc_cust = TabularDatasetFactory.from_delimited_files(path=cc_data, separator=',')
+`cc_cust = TabularDatasetFactory.from_delimited_files(path=cc_data, separator=',')`
 
 ## Automated ML
 
-I ran the experiment a few times using timeout settings of 20mins and 40mins but this was too short for any child runs to start. I set experiment_timeout_minutes to 60 so as to allow significant time for training of a few child models. Primary metric used is accuracy and I tried to set a metric exit score as after a few attempts at running the experiment I noticed the score doesn't improve much after the first 5 child runs.
+I ran the experiment a few times using timeout settings of 20mins and 40mins but this was too short for any child runs to start. I set experiment_timeout_minutes to 60 so as to allow significant time for training of a few child models. Primary metric used is accuracy and exit score of 0.95 to prevent continued runs when no significant improvement is happening to the score. I tried to set a metric exit score as after a few attempts at running the experiment I noticed the score doesn't improve much after the first 5 child runs.
 
 ### Results
 
-Although the AutoML experiment timeout setting ended the experiment, accuracy score was 0.95 for the best model. I ran the experiment more than one noticing that each time the accuracy score was different. Perhaps the difference in compute resources may have influenced the outcome. 
+Accuracy score was 0.97 for the best model. I ran the experiment more than one noticing that each time the accuracy score was different. Perhaps the difference in compute resources may have influenced the outcome. 
 
 The image below shows run details:
 
@@ -51,6 +51,32 @@ The image below shows run details:
 This shows the best model:
 
 ![Best model with run ID](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/best_model_with_run_id.PNG)
+
+Here are the parameters of the best model
+```
+LightGBMClassifier
+{'boosting_type': 'gbdt',
+ 'class_weight': None,
+ 'colsample_bytree': 1.0,
+ 'importance_type': 'split',
+ 'learning_rate': 0.1,
+ 'max_depth': -1,
+ 'min_child_samples': 20,
+ 'min_child_weight': 0.001,
+ 'min_split_gain': 0.0,
+ 'n_estimators': 100,
+ 'n_jobs': 1,
+ 'num_leaves': 31,
+ 'objective': None,
+ 'random_state': None,
+ 'reg_alpha': 0.0,
+ 'reg_lambda': 0.0,
+ 'silent': True,
+ 'subsample': 1.0,
+ 'subsample_for_bin': 200000,
+ 'subsample_freq': 0,
+ 'verbose': -10}
+```
 
 In the future, I would like to see if letting the experiment run for multiple hours will yield much better results. Also, testing to see how increasing the number of cross-validations or using a larger data set may reduce bias. 
 
@@ -82,7 +108,9 @@ This shows best run:
 
 ## Model Deployment
 
-I deployed the AutoML model and created a sample JSON payload from the original data set to call the endpoint for scoring. 
+The best model was registered and deployed. I chose to deploy the AutoML model. Inference config was setup to handle the deployment environment and scoring. A container instance with 1 CPU core and 1gb RAM sufficient for development operation was set up.
+
+A sample JSON payload was created from 5 rows of the original data set. With this I called the model endpoint for scoring.
 
 ![Deployed model](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/deployed_model.PNG)
 
