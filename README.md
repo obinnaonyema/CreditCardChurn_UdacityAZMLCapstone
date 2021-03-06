@@ -46,11 +46,13 @@ Accuracy score was 0.97 for the best model. I ran the experiment more than one n
 
 The image below shows run details:
 
-![Run details AutoML](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/run_details_automl.PNG)
+![Run details AutoML](Images/run_details_automl_3.PNG)
 
 This shows the best model:
 
 ![Best model with run ID](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/best_model_with_run_id.PNG)
+
+![Best model details](Images/best_model_details.PNG)
 
 Here are the parameters of the best model
 ```
@@ -99,7 +101,7 @@ In the future, I would like to test improving the experiment by using a differen
 
 The image below shows run details with the run in progress:
 
-![Run details hyperdrive](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/run_details_hyperdrive.PNG)
+![Run details hyperdrive](Images/run_details_hyperdrive_3.PNG)
 
 This shows best run:
 
@@ -122,7 +124,7 @@ Here are the endpoint details showing it in healthy state:
 
 ## Screen Recording
 
-You may view my screen cast [here](https://youtu.be/4F9Q9GvIhQU). I have run through the tasks briefly demonstrating with the files on my github repo.
+You may view my screen cast [here](https://youtu.be/dwEIDuCOSfw). I have run through the tasks briefly demonstrating with the files on my github repo.
 
 
 ## Future Work
