@@ -65,9 +65,9 @@ The image below shows run details:
 
 This shows the best model:
 
-![Best model with run ID](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/best_model_with_run_id.PNG)
-
 ![Best model details](Images/best_model_details.PNG)
+
+![Best model chart](Images/run_details_hyperdrive_3_chart.PNG)
 
 Here are the parameters of the best model
 ```
