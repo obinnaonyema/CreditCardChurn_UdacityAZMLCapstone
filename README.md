@@ -4,6 +4,21 @@ This is my chosen project for the Capstone Project in the Azure Machine Learning
 
 2 methods are used: one with Automated ML and one with the hyperdrive service. The better model is selected and deployed and sample requests are sent to the deployed endpoint.
 
+## Table of Contents
+* [Project Set Up and Installation](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#project-set-up-and-installation)
+* [Dataset](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#dataset)
+  * [Overview](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#overview)
+  * [Task](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#task)
+  * [Access to Data](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#access)
+* [Automated ML](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#automated-ml)
+  * [Results](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#results)
+* [Hyperparameter Tuning](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#hyperparameter-tuning)
+  * [Results](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#results-1)
+* [Model Deployment](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#model-deployment) 
+* [Screen Recording](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#screen-recording)
+* [Future Work](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone#future-work)
+
+
 ## Project Set Up and Installation
 
 To run this experiment, try the following:
@@ -112,15 +127,15 @@ This shows best run:
 
 The best model was registered and deployed. I chose to deploy the AutoML model. Inference config was setup to handle the deployment environment and scoring. A container instance with 1 CPU core and 1gb RAM sufficient for development operation was set up.
 
-A sample JSON payload was created from 5 rows of the original data set. With this I called the model endpoint for scoring.
+![Registered model](Images/registered_model.PNG)
 
-![Deployed model](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/deployed_model.PNG)
+A sample JSON payload was created from 5 rows of the original data set. With this I called the model endpoint for scoring.
 
 I chose 5 rows of data to make up the parameters of the JSON request payload. Then I compared the response to the values in Attrition_Flag from the original dataset. The code detailing this is in the AutoML notebook.
 
 Here are the endpoint details showing it in healthy state:
 
-![Endpoint healthy state](https://github.com/obinnaonyema/CreditCardChurn_UdacityAZMLCapstone/blob/main/Images/endpoint_details.PNG)
+![Endpoint healthy state](Images/endpoint_details.PNG)
 
 ## Screen Recording
 
